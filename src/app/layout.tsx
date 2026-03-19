@@ -9,10 +9,11 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Kafis Packaging",
-  description: "Packaging that powers your food business",
-};
+export const metadata = {
+  title: "Packaging Company in Nigeria | Cups, Boxes & Food Packaging",
+  description:
+    "We supply plastic cups, cake boxes, food packaging and more. Fast delivery and bulk orders available.",
+}
 
 export default function RootLayout({
   children,

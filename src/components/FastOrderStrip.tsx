@@ -2,8 +2,36 @@
 
 import { MessageCircle, FileText, Search } from "lucide-react";
 import { motion } from "framer-motion";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function FastOrderStrip() {
+  const trackWhatsAppClick = (location: string, ctaLabel: string) => {
+    sendGAEvent("event", "whatsapp_click", {
+      button_location: location,
+      page_section: "fast_order",
+      cta_label: ctaLabel,
+      destination: "whatsapp",
+    });
+  };
+
+  const trackQuoteClick = () => {
+    sendGAEvent("event", "quote_request_click", {
+      button_location: "fast_order_quote",
+      page_section: "fast_order",
+      cta_label: "Request a Quote",
+      destination: "quote_form",
+    });
+  };
+
+  const trackCatalogueClick = () => {
+    sendGAEvent("event", "catalogue_view_click", {
+      button_location: "fast_order_catalogue",
+      page_section: "fast_order",
+      cta_label: "View Catalogue",
+      destination: "categories_section",
+    });
+  };
+
   return (
     <>
       {/* Mobile Sticky WhatsApp CTA - Always visible at bottom on small screens */}
@@ -12,6 +40,7 @@ export default function FastOrderStrip() {
           href="https://wa.me/1234567890"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppClick("fast_order_mobile_sticky", "Chat on WhatsApp")}
           className="pointer-events-auto w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-bold rounded-2xl shadow-[0_15px_30px_rgba(37,211,102,0.3)] transition-transform active:scale-95"
         >
           <MessageCircle className="w-6 h-6" />
@@ -25,8 +54,7 @@ export default function FastOrderStrip() {
       {/* Main Section */}
       <section className="relative z-30 bg-brand-green/5 py-24 px-4 md:px-8">
         <div className="max-w-6xl mx-auto">
-          
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -41,12 +69,12 @@ export default function FastOrderStrip() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            
             {/* Primary Action: WhatsApp */}
             <motion.a
               href="https://wa.me/1234567890"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("fast_order_primary", "Chat on WhatsApp")}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,6 +90,8 @@ export default function FastOrderStrip() {
 
             {/* Secondary Action: Get a Quote */}
             <motion.button
+              type="button"
+              onClick={trackQuoteClick}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -78,6 +108,7 @@ export default function FastOrderStrip() {
             {/* Tertiary Action: Browse Catalogue */}
             <motion.a
               href="#categories"
+              onClick={trackCatalogueClick}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -90,7 +121,6 @@ export default function FastOrderStrip() {
               <h3 className="text-2xl font-bold mb-3">View Catalogue</h3>
               <p className="text-text-muted font-medium text-lg tracking-wide">Explore all products</p>
             </motion.a>
-
           </div>
         </div>
       </section>
