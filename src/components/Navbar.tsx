@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
+import { sendGAEvent } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,6 +18,15 @@ export default function Navbar() {
     });
   }, [scrollY]);
 
+  const handleWhatsAppClick = () => {
+    sendGAEvent("event", "whatsapp_click", {
+      button_location: "navbar",
+      destination: "whatsapp",
+      cta_label: "Order on WhatsApp",
+      page_section: "header",
+    });
+  };
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -28,48 +38,65 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center group">
           <div className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 overflow-hidden bg-white rounded-full shadow-md mr-3 border border-gray-100 flex-shrink-0">
-            <Image 
-              src="/sequence/logo.png" 
-              alt="Kafis" 
+            <Image
+              src="/sequence/logo.png"
+              alt="Kafis"
               fill
               className="object-cover scale-[1.3] md:scale-[1.5]"
               priority
             />
           </div>
-          <span className={cn(
-            "text-xl md:text-2xl font-black tracking-tighter transition-colors duration-300 drop-shadow-sm",
-            isScrolled ? "text-text-primary" : "text-white"
-          )}>
-            Kafis<span className={cn(
-              "transition-colors duration-300",
-              isScrolled ? "text-brand-green" : "text-brand-leaf"
-            )}>Packaging</span>
+          <span
+            className={cn(
+              "text-xl md:text-2xl font-black tracking-tighter transition-colors duration-300 drop-shadow-sm",
+              isScrolled ? "text-text-primary" : "text-white"
+            )}
+          >
+            Kafis
+            <span
+              className={cn(
+                "transition-colors duration-300",
+                isScrolled ? "text-brand-green" : "text-brand-leaf"
+              )}
+            >
+              Packaging
+            </span>
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className={cn(
-          "hidden lg:flex items-center space-x-8 text-sm transition-colors",
-          isScrolled 
-            ? "font-medium text-text-muted [&>a:hover]:text-text-primary"
-            : "font-semibold text-white/90 drop-shadow-md [&>a:hover]:text-white"
-        )}>
-          <Link href="#products" className="transition-colors">Products</Link>
-          <Link href="#categories" className="transition-colors">Categories</Link>
-          <Link href="#bulk-orders" className="transition-colors">Bulk Orders</Link>
-          <Link href="#custom-branding" className="transition-colors">Custom Branding</Link>
-          <Link href="#contact" className="transition-colors">Contact</Link>
+        <nav
+          className={cn(
+            "hidden lg:flex items-center space-x-8 text-sm transition-colors",
+            isScrolled
+              ? "font-medium text-text-muted [&>a:hover]:text-text-primary"
+              : "font-semibold text-white/90 drop-shadow-md [&>a:hover]:text-white"
+          )}
+        >
+          <Link href="#products" className="transition-colors">
+            Products
+          </Link>
+          <Link href="#categories" className="transition-colors">
+            Categories
+          </Link>
+          <Link href="#bulk-orders" className="transition-colors">
+            Bulk Orders
+          </Link>
+          <Link href="#custom-branding" className="transition-colors">
+            Custom Branding
+          </Link>
+          <Link href="#contact" className="transition-colors">
+            Contact
+          </Link>
         </nav>
 
-        {/* CTA */}
         <div className="flex items-center">
           <a
-            href="https://wa.me/1234567890" // Placeholder for actual WA link
+            href="https://wa.me/1234567890"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
             className="flex items-center gap-2 text-sm font-medium bg-brand-green hover:bg-brand-leaf text-white px-5 py-2.5 rounded-full transition-all shadow-md transform hover:scale-105 active:scale-95"
           >
             <MessageCircle className="w-4 h-4" />
