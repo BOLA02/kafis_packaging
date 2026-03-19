@@ -1,78 +1,99 @@
 "use client";
 
-import { Instagram, Search, FileText, CheckCircle2 } from "lucide-react";
+import { MessageCircle, FileText, Search } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function FastOrderStrip() {
   return (
     <>
-      {/* Mobile Sticky CTA - Always visible at bottom on small screens */}
+      {/* Mobile Sticky WhatsApp CTA - Always visible at bottom on small screens */}
       <div className="md:hidden fixed bottom-6 left-4 right-4 z-50 pointer-events-none flex flex-col items-center">
         <a
-          href="https://instagram.com/KafisPackaging"
+          href="https://wa.me/1234567890"
           target="_blank"
-          className="pointer-events-auto w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-tr from-[#fd5949] to-[#d6249f] text-white font-bold rounded-2xl shadow-[0_15px_30px_rgba(214,36,159,0.3)] transition-transform active:scale-95 hover:opacity-90"
+          rel="noopener noreferrer"
+          className="pointer-events-auto w-full flex items-center justify-center gap-3 px-6 py-4 bg-[#25D366] hover:bg-[#1DA851] text-white font-bold rounded-2xl shadow-[0_15px_30px_rgba(37,211,102,0.3)] transition-transform active:scale-95"
         >
-          <Instagram className="w-6 h-6" />
+          <MessageCircle className="w-6 h-6" />
           <div className="flex flex-col items-start leading-none">
-            <span className="text-lg">Order on Instagram</span>
-            <span className="text-xs font-medium text-white/90 mt-0.5">Fast response & support</span>
+            <span className="text-lg">Chat on WhatsApp</span>
+            <span className="text-xs font-medium text-white/90 mt-0.5">Instant response</span>
           </div>
         </a>
       </div>
 
-      {/* Main Strip Area */}
-      <div className="relative z-30 bg-background-primary border-y border-gray-100/60 shadow-[0_10px_40px_rgba(0,0,0,0.02)] py-8 px-4 md:px-8 mt-12 mb-24">
-        <div className="max-w-[90rem] mx-auto flex flex-col xl:flex-row items-center justify-between gap-8">
+      {/* Main Section */}
+      <section className="relative z-30 bg-brand-green/5 py-24 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto">
           
-          {/* Action Buttons */}
-          <div className="flex w-full xl:w-auto flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-text-primary mb-6">
+              Order Fast. Get It Delivered.
+            </h2>
+            <p className="text-lg md:text-xl text-text-muted font-medium max-w-2xl mx-auto leading-relaxed">
+              Get instant responses, bulk pricing, and fast fulfilment for all your packaging needs.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             
-            {/* Desktop Instagram CTA */}
-            <a
-              href="https://instagram.com/KafisPackaging"
+            {/* Primary Action: WhatsApp */}
+            <motion.a
+              href="https://wa.me/1234567890"
               target="_blank"
-              className="hidden md:flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-tr from-[#fd5949] to-[#d6249f] hover:opacity-90 text-white font-bold rounded-2xl shadow-[0_10px_20px_rgba(214,36,159,0.3)] transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group flex flex-col items-center justify-center text-center p-8 md:p-10 bg-[#25D366] hover:bg-[#1DA851] text-white rounded-[2.5rem] shadow-xl hover:shadow-2xl shadow-[#25D366]/20 transition-all duration-300 transform hover:-translate-y-2 border border-transparent"
             >
-              <Instagram className="w-6 h-6" />
-              <div className="flex flex-col items-start leading-none">
-                <span className="text-lg">Order on Instagram</span>
-                <span className="text-xs font-medium text-white/90 mt-1">Fast response & support</span>
+              <div className="w-20 h-20 bg-white/20 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                <MessageCircle className="w-10 h-10 text-white" />
               </div>
-            </a>
+              <h3 className="text-3xl font-bold mb-3">Chat on WhatsApp</h3>
+              <p className="text-white/90 font-medium text-lg tracking-wide">Instant response</p>
+            </motion.a>
 
-            {/* Secondary Actions */}
-            <div className="flex flex-row gap-4 w-full sm:w-auto">
-              <a 
-                href="#categories"
-                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-4 bg-gray-50 hover:bg-gray-100 text-text-primary font-bold rounded-2xl transition-colors border border-gray-200 shadow-sm whitespace-nowrap"
-              >
-                <Search className="w-5 h-5 text-brand-green" /> Browse Catalogue
-              </a>
-
-              <button 
-                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-4 bg-text-primary hover:bg-black text-white font-bold rounded-2xl transition-transform active:scale-95 shadow-lg whitespace-nowrap"
-              >
-                <FileText className="w-5 h-5 text-gray-300" /> Get a Quote
-              </button>
-            </div>
-          </div>
-
-          {/* Trust Micro-badges */}
-          <div className="flex flex-wrap items-center justify-center xl:justify-end gap-3 w-full xl:w-auto">
-            {[
-              "Food-service packaging",
-              "Bulk / wholesale available",
-              "Fast fulfilment"
-            ].map((badge, i) => (
-              <div key={i} className="flex items-center gap-1.5 px-4 py-2 bg-brand-green/5 border border-brand-green/10 text-brand-leaf text-sm font-bold rounded-full shadow-sm">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
-                {badge}
+            {/* Secondary Action: Get a Quote */}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="group flex flex-col items-center justify-center text-center p-8 md:p-10 bg-white hover:bg-gray-50 text-text-primary rounded-[2.5rem] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="w-20 h-20 bg-brand-green/10 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                <FileText className="w-10 h-10 text-brand-green" />
               </div>
-            ))}
+              <h3 className="text-2xl font-bold mb-3">Request a Quote</h3>
+              <p className="text-text-muted font-medium text-lg tracking-wide">Bulk pricing available</p>
+            </motion.button>
+
+            {/* Tertiary Action: Browse Catalogue */}
+            <motion.a
+              href="#categories"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="group flex flex-col items-center justify-center text-center p-8 md:p-10 bg-white hover:bg-gray-50 text-text-primary rounded-[2.5rem] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+            >
+              <div className="w-20 h-20 bg-brand-orange/10 rounded-[1.5rem] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                <Search className="w-10 h-10 text-brand-orange" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">View Catalogue</h3>
+              <p className="text-text-muted font-medium text-lg tracking-wide">Explore all products</p>
+            </motion.a>
+
           </div>
-          
         </div>
-      </div>
+      </section>
     </>
   );
 }
