@@ -9,7 +9,11 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+
 export const metadata = {
+  verification: {
+    google: "R7aqVAlVlFJWzrw_TMRvy4VpTRP9KseqJl_4yGR9XyE",
+  },
   title: "Packaging Company in Nigeria | Cups, Boxes & Food Packaging",
   description:
     "We supply plastic cups, cake boxes, food packaging and more. Fast delivery and bulk orders available.",
