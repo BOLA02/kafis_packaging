@@ -14,9 +14,9 @@ export const metadata = {
   verification: {
     google: "R7aqVAlVlFJWzrw_TMRvy4VpTRP9KseqJl_4yGR9XyE",
   },
-  title: "Packaging Company in Nigeria | Cups, Boxes & Food Packaging",
+  title: "Packaging in Abuja | Plastic Cups, Cake Boxes & Food Packaging - Kafis Packaging",
   description:
-    "We supply plastic cups, cake boxes, food packaging and more. Fast delivery and bulk orders available.",
+    "Kafis Packaging supplies plastic cups, cake boxes, food containers and disposable packaging in Abuja. Bulk orders, fast delivery and affordable prices.",
 }
 
 export default function RootLayout({

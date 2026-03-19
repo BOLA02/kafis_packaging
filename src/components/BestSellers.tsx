@@ -90,7 +90,7 @@ export default function BestSellers() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div className="max-w-3xl">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-4 text-text-primary">
-            Best Sellers
+            Best Selling Food Packaging Products in Kaduna
           </h2>
           <p className="text-xl text-text-muted font-medium leading-relaxed max-w-2xl">
             Popular packaging options trusted by food vendors, event planners, and retail businesses.

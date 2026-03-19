@@ -14,33 +14,34 @@ export default function Home() {
   return (
     <main className="relative w-full overflow-x-hidden text-text-primary bg-background-primary">
       <Navbar />
-      
+
       {/* NEW VIDEO HERO SECTION */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black/10">
-        <video 
+        <video
           src="/video/Kafis_Packaging_product_202603181226.mp4"
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+          autoPlay
+          loop
+          muted
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          aria-label="Plastic cups for cold drinks in Kaduna packaging supply"
         />
         {/* Dark overlay for better text legibility */}
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 mt-20">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 drop-shadow-lg">
-            Packaging that powers <br className="hidden md:block"/> your <span className="text-brand-orange">food business.</span>
+            Packaging that powers <br className="hidden md:block" /> your <span className="text-brand-orange">food business.</span>
           </h1>
           <p className="max-w-2xl text-xl text-gray-200 mx-auto font-medium mb-10 leading-relaxed drop-shadow-md">
-            Disposable cups, takeaway boxes, trays, and food containers trusted by restaurants, bakers, and food vendors.
+            “Supplying plastic cups, cake boxes, food containers and disposable packaging for vendors, events and businesses in Kaduna."
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#categories" className="px-8 py-4 bg-brand-green hover:bg-brand-leaf text-white font-semibold rounded-full transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-brand-green/20">
               Browse Products
             </a>
             <a href="https://instagram.com/KafisPackaging" target="_blank" className="px-8 py-4 bg-gradient-to-tr from-[#fd5949] to-[#d6249f] hover:opacity-90 text-white font-semibold rounded-full transition-all backdrop-blur-md transform hover:scale-105 active:scale-95 flex items-center gap-2 shadow-lg shadow-[#d6249f]/30">
-              <Instagram className="w-5 h-5"/> DM on Instagram
+              <Instagram className="w-5 h-5" /> DM on Instagram
             </a>
           </div>
         </div>
@@ -52,7 +53,7 @@ export default function Home() {
         ========================================================
       */}
       <div className="relative z-20 bg-background-primary shadow-[0_-20px_50px_rgba(0,0,0,0.05)] pb-20">
-        
+
         {/* The new interactive grid, best sellers, and order strip */}
         <CategoryGrid />
         <BestSellers />

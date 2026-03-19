@@ -9,7 +9,7 @@ const CATEGORIES = [
   {
     id: "cups",
     title: "Paper Cups",
-    video: "/product/kafis_packaging_1681303368_highlight18079115452248497.mp4", 
+    video: "/product/kafis_packaging_1681303368_highlight18079115452248497.mp4",
     items: [
       { name: "Double Wall Hot Cups", size: "250ml / 500ml", desc: "Heat-resistant & insulated" },
       { name: "Clear Cold Cups", size: "300ml / 500ml", desc: "PET plastic, crack-resistant" },
@@ -19,7 +19,7 @@ const CATEGORIES = [
   {
     id: "pouches",
     title: "Stand-Up Pouches",
-    video: "/product/kafis_packaging_1701416466_highlight18079115452248497.mp4", 
+    video: "/product/kafis_packaging_1701416466_highlight18079115452248497.mp4",
     items: [
       { name: "Kraft Foil Pouches", size: "100g - 1kg", desc: "Zipper lock, strong barrier" },
       { name: "Clear Window Pouches", size: "250g / 500g", desc: "Display product visibility" },
@@ -81,7 +81,7 @@ export default function CategoryGrid() {
   return (
     <section id="categories" className="pt-24 pb-8 px-4 md:px-8 max-w-[90rem] mx-auto min-h-screen">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-text-primary">Shop by Category</h2>
+        <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-text-primary">Browse Food Packaging Categories in Kaduna</h2>
         <p className="text-xl text-text-muted font-medium max-w-2xl mx-auto leading-relaxed">
           Premium packaging crafted for food businesses that care about quality and reliability.
         </p>
@@ -97,31 +97,31 @@ export default function CategoryGrid() {
               layout
               key={cat.id}
               onClick={() => setActiveId(isActive ? null : cat.id)}
-              className={`group relative overflow-hidden bg-white cursor-pointer transition-shadow duration-500 will-change-transform ${
-                isActive 
-                  ? "col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(45,106,79,0.15)] ring-1 ring-brand-green/20 z-20" 
-                  : "col-span-1 rounded-3xl shadow-sm hover:shadow-2xl hover:ring-1 hover:ring-brand-green/30 ring-1 ring-gray-100"
-              }`}
+              className={`group relative overflow-hidden bg-white cursor-pointer transition-shadow duration-500 will-change-transform ${isActive
+                ? "col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 rounded-[2.5rem] shadow-[0_30px_60px_-15px_rgba(45,106,79,0.15)] ring-1 ring-brand-green/20 z-20"
+                : "col-span-1 rounded-3xl shadow-sm hover:shadow-2xl hover:ring-1 hover:ring-brand-green/30 ring-1 ring-gray-100"
+                }`}
             >
               {/* Card Contents */}
               <div className={`flex flex-col ${isActive ? "md:flex-row" : ""} h-full w-full`}>
-                
+
                 {/* Visual / Image Block */}
-                <motion.div 
+                <motion.div
                   layout
                   className={`relative overflow-hidden ${isActive ? "h-72 md:h-full md:w-[450px] shrink-0" : "aspect-[3/4] md:aspect-square w-full"}`}
                 >
-                  <motion.video 
+                  <motion.video
                     layout="position"
-                    src={cat.video} 
+                    src={cat.video}
                     autoPlay loop muted playsInline
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" 
+                    aria-label="Plastic cups for cold drinks in Kaduna packaging supply"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                   />
-                  
+
                   {/* Subtle Grain/Texture & Gradient Overlay */}
                   <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1b4332]/95 via-[#2d6a4f]/50 to-transparent mix-blend-multiply" />
-                  
+
                   {/* Title & Interaction Hint */}
                   <div className="absolute bottom-0 left-0 p-8 w-full">
                     <motion.h3 layout="position" className="text-3xl font-bold text-white mb-3 leading-tight drop-shadow-lg">
@@ -147,7 +147,7 @@ export default function CategoryGrid() {
                       <div className="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
                         <h4 className="text-2xl font-black text-text-primary uppercase tracking-tight">Best Selling Items</h4>
                       </div>
-                      
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {cat.items.map((item, i) => (
                           <div key={i} className="bg-background-primary p-6 rounded-[1.5rem] flex flex-col h-full border border-gray-100 hover:border-brand-green/30 hover:shadow-lg transition-all duration-300">
@@ -158,7 +158,7 @@ export default function CategoryGrid() {
                             </div>
                             <h5 className="font-bold text-lg text-text-primary mb-2 line-clamp-1">{item.name}</h5>
                             <p className="text-sm text-text-muted font-medium mb-6 flex-grow">{item.desc}</p>
-                            
+
                             <button className="w-full py-3.5 bg-white text-brand-green border-2 border-brand-green/10 rounded-xl font-bold hover:bg-brand-green hover:text-white hover:border-transparent hover:shadow-md transition-all">
                               Request Price
                             </button>
