@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import CategoryGrid from "@/components/CategoryGrid";
 import BestSellers from "@/components/BestSellers";
 import FastOrderStrip from "@/components/FastOrderStrip";
+import TrustSection from "@/components/TrustSection";
+import Testimonials from "@/components/Testimonials";
 import { BadgeDollarSign, Award, PackageSearch, Truck, MessageCircle, Instagram } from "lucide-react";
 
 export default function Home() {
@@ -54,6 +56,8 @@ export default function Home() {
         <CategoryGrid />
         <BestSellers />
         <FastOrderStrip />
+        <TrustSection />
+        <Testimonials />
 
         {/* WHO WE SERVE */}
         <section className="py-24 px-6 max-w-7xl mx-auto">
@@ -69,24 +73,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* WHY CHOOSE KAFIS */}
-        <section className="py-24 px-6 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: BadgeDollarSign, title: "Affordable Bulk Prices", color: "text-brand-green bg-brand-green/10" },
-              { icon: Award, title: "Quality Materials", color: "text-brand-orange bg-brand-orange/10" },
-              { icon: PackageSearch, title: "Wide Selection", color: "text-blue-500 bg-blue-500/10" },
-              { icon: Truck, title: "Reliable Supply", color: "text-purple-500 bg-purple-500/10" }
-            ].map((feature, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-8 bg-white rounded-3xl border border-gray-100 shadow-sm">
-                <div className={`w-16 h-16 rounded-2xl ${feature.color} flex items-center justify-center mb-6`}>
-                  <feature.icon className="w-8 h-8" />
-                </div>
-                <h3 className="font-bold text-xl text-text-primary">{feature.title}</h3>
-              </div>
-            ))}
-          </div>
-        </section>
+
 
         {/* TWO-TRAY INFO (Custom & Bulk) */}
         <section id="custom-branding" className="py-12 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
