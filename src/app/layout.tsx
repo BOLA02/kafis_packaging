@@ -24,6 +24,7 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased`}
       >
         {children}
+        <GoogleAnalytics gaId="G-DYZX2W75XN" />
         <FloatingWhatsApp />
       </body>
     </html>
